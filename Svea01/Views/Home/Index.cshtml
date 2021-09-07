@@ -5,14 +5,20 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
 
-    <ul>
+</div>
+
+<div style="background-color:Black; color:White; width:80%">
+    <table style="text-align:center">
+
         @foreach (int data in ViewBag.arrayData)
         {
-            <li>
-                @data
-            </li>
+            <tr>
+                <td>@data hihi</td>
+            </tr>
         }
-    </ul>
 
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </table>
 </div>
+
+<button action="demarrer">Démarrer</button>
+<button action="fin">Fin</button>
