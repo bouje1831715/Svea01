@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Svea01.Models;
+using System.Text;
 
 namespace Svea01.Controllers
 {
@@ -20,6 +21,28 @@ namespace Svea01.Controllers
             _logger = logger;
         }
 
+        public string RandomString(int length)
+        {
+            StringBuilder sbuilder = new StringBuilder();
+            for (int x = 0; x < length; ++x)
+            {
+                sbuilder.Append((char)_random.Next(97, 122));
+            }
+            return sbuilder.ToString();
+        }
+
+        public string[] dieu(int value)
+        {
+            string[] tblNom = new string[value];
+            int longeur;
+            for (int i = 0; i < value; i++)
+            {
+                longeur = _random.Next(3, 8);
+                tblNom[i] = RandomString(longeur);
+            }
+            return tblNom;
+        }
+
         public int[] yeet(int value)
         {
 
@@ -29,13 +52,57 @@ namespace Svea01.Controllers
             {
                 rndData[i] = _random.Next(0, 1000);
             }
+            rndData.ToString();
+            return rndData;
+        }
 
+        public int[] dateAnnee(int value)
+        {
+
+            int[] rndData = new int[value];
+
+            for (int i = 0; i < value; i++)
+            {
+                rndData[i] = _random.Next(0, 2022);
+            }
+            rndData.ToString();
+            return rndData;
+        }
+
+        public int[] dateMois(int value)
+        {
+
+            int[] rndData = new int[value];
+
+            for (int i = 0; i < value; i++)
+            {
+                rndData[i] = _random.Next(0, 12);
+            }
+            rndData.ToString();
+            return rndData;
+        }
+
+        public int[] dateJour(int value)
+        {
+
+            int[] rndData = new int[value];
+
+            for (int i = 0; i < value; i++)
+            {
+                rndData[i] = _random.Next(0, 31);
+            }
+            rndData.ToString();
             return rndData;
         }
 
         public IActionResult Index()
         {
-            ViewBag.arrayData = yeet(100);
+            ViewBag.arrayData = yeet(101);
+            ViewBag.arrayName = dieu(101);
+            ViewBag.arrayDateAnnee = dateAnnee(101);
+            ViewBag.arrayDateJour = dateJour(101);
+            ViewBag.arrayDateMois = dateMois(101);
+
             return View();
         }
 

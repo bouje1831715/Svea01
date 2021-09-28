@@ -10,13 +10,23 @@
 <div style="background-color:Black; color:White; width:80%">
     <table style="text-align:center">
 
-        @foreach (int data in ViewBag.arrayData)
+        <tr>
+            <th>Nom</th>
+            <th>Données</th>
+            <th>Date</th>
+        </tr>
+        @for (int i = 0; i < 101; i++)
         {
-            <tr>
-                <td>@data hihi</td>
-            </tr>
+        <tr>
+            <td>@ViewBag.arrayName[i]</td>
+            <td>@ViewBag.arrayData[i]</td>
+            <td>
+                @ViewBag.arrayDateAnnee[i] /
+                @ViewBag.arrayDateMois[i] /
+                @ViewBag.arrayDateJour[i]
+            </td>
+        </tr>
         }
-
     </table>
 </div>
 
